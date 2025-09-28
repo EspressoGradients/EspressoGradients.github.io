@@ -4,17 +4,13 @@ layout: archive
 
 {{ content }}
 
-<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
+{% comment %}
+Show the last 5 posts in reverse chronological order without the Recent Posts header
+{% endcomment %}
 
-{% if paginator %}
-  {% assign posts = paginator.posts %}
-{% else %}
-  {% assign posts = site.posts %}
-{% endif %}
+{% assign posts_to_show = site.posts | sort: "date" | reverse | slice: 0,5 %}
 
 {% assign entries_layout = page.entries_layout | default: 'list' %}
 <div class="entries-{{ entries_layout }}">
-  {% include documents-collection.html entries=posts type=entries_layout %}
+  {% include documents-collection.html entries=posts_to_show type=entries_layout %}
 </div>
-
-{% include paginator.html %}

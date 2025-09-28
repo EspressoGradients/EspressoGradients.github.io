@@ -2,6 +2,11 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 search: false
 ---
+@charset "utf-8";
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials
+
 .page__content-hero {
   max-width: 1500px;      // width of content column
   max-height: 500px;     // fixed height
@@ -25,8 +30,23 @@ search: false
   }
 }
 
+.sidebar--left .author__avatar img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
 
-@charset "utf-8";
+.sidebar--right .recent-posts {
+  list-style: none;
+  padding: 0;
+}
 
-@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
-@import "minimal-mistakes"; // main partials
+.sidebar--right .recent-posts li {
+  margin-bottom: 0.75rem;
+}
+
+.page__title {
+  margin-bottom: 0rem; // adjust as needed
+}
+

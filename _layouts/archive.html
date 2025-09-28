@@ -14,13 +14,25 @@ layout: default
   {% endunless %}
 {% endif %}
 
-<div id="main" role="main">
+<div id="main" role="main" class="site__content">
+
   {% include sidebar.html %}
 
   <div class="archive">
     {% unless page.header.overlay_color or page.header.overlay_image %}
-      <h1 id="page-title" class="page__title"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>{{ page.title }}</h1>
+      <h1 id="page-title" class="page__title"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>
+        {% if page.url == "/" %}Posts{% else %}{{ page.title }}{% endif %}
+      </h1>
     {% endunless %}
-    {{ content }}
+
+    {% comment %}
+      Show all posts from _posts in reverse chronological order (ignoring time)
+    {% endcomment %}
+    {% assign posts_to_show = site.posts | sort: "date" | reverse %}
+
+    {% assign entries_layout = page.entries_layout | default: 'list' %}
+    <div class="entries-{{ entries_layout }}">
+      {% include documents-collection.html entries=posts_to_show type=entries_layout %}
+    </div>
   </div>
 </div>
