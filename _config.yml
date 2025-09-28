@@ -16,14 +16,14 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 # Site Settings
 locale                   : "en-US"
 rtl                      : false # true, false (default) # turns direction of the page into right to left for RTL languages
-title                    : "Code and Collisions"
+title                    : "Espresso and Gradients"
 title_separator          : "-"
-subtitle                 : "Personal Blog" # site tagline that appears below site title in masthead
+subtitle                 : "Theories, networks, and life in between" # site tagline that appears below site title in masthead
 name                     : "Your Name"
 description              : "A personal blog about life as a physicist."
-url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://EspressoGradients.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : EspressoGradients/EspressoGradients.github.io # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
@@ -35,10 +35,10 @@ copyright_url            : # "copyright" URL, defaults to site.url
 comments:
   provider: giscus
   giscus:
-    repo: "CodeCollisions/CodeCollisions.github.io"   # your GitHub repo
-    repo_id: "R_kgDOP2QUcg"                           # from Giscus setup
+    repo: "EspressoGradients/EspressoGradients.github.io"   # your GitHub repo
+    repo_id: "R_kgDOP4FSTA"                           # from Giscus setup
     category: "Blog Comments"                         # the discussion category name
-    category_id: "DIC_kwDOP2QUcs4Cv6WY"                  # from Giscus setup
+    category_id: "DIC_kwDOP4FSTM4Cv_Dv"                  # from Giscus setup
     mapping: "pathname"                               # map comments to page/post URL
     reactions_enabled: true                           # enable GitHub reactions
     emit_metadata: false
