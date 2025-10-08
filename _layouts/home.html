@@ -2,6 +2,17 @@
 layout: archive
 ---
 
+{%- if page.header and page.header.image -%}
+  <header class="page__header">
+    <figure class="page__header-image">
+      <img src="{{ page.header.image }}" alt="{{ page.header.alt | default: site.title }}">
+      {%- if page.header.caption -%}
+        <figcaption class="page__header-caption">{{ page.header.caption }}</figcaption>
+      {%- endif -%}
+    </figure>
+  </header>
+{%- endif -%}
+
 {{ content }}
 
 {% comment %}

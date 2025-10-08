@@ -16,11 +16,11 @@ search: false
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;   // crop to fill container without distortion
-    object-position: center center; // <-- controls which part is visible
+    object-fit: cover;   /* crop to fill container without distortion */
+    object-position: bottom center; /* controls which part is visible */
     display: block;
   }
-  // object-position options: center center, top center, bottom center, left center, right center, object-position: 50% 25%;
+  /* object-position options: center center, top center, bottom center, left center, right center, object-position: 50% 25%; */
 
   figcaption {
     font-size: 0.9rem;
@@ -47,6 +47,6 @@ search: false
 }
 
 .page__title {
-  margin-bottom: 0rem; // adjust as needed
+  margin-bottom: 1rem; // adjust as needed
 }
 
