@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
+  {% include page__hero.html %}
+{% elsif page.header.video.id and page.header.video.provider %}
+  {% include page__hero_video.html %}
+{% endif %}
+
+{% if page.url != "/" and site.breadcrumbs %}
+  {% unless paginator %}
+    {% include breadcrumbs.html %}
+  {% endunless %}
+{% endif %}
+
+<div id="main" role="main" class="site__content">
+
+  {% include sidebar.html %}
+
+  <div class="archive">
+    <h1 class="page__title"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>Year Archive</h1>
+
+    {% comment %}
+    Convert posts to hash objects to avoid [] errors in documents-collection.html
+    {% endcomment %}
+    {% assign posts_hash = site.posts | map: "to_liquid" %}
+    
+    {% assign all_years = posts_hash | map: "date" | uniq | sort: "reverse" %}
+    
+    {% for y in all_years %}
+      {% assign year = y | date: "%Y" %}
+      <h2 class="archive__year">{{ year }}</h2>
+
+      {% assign posts_in_year = posts_hash | where_exp: "post", "post.date | date: '%Y' == year" | sort: "date" | reverse %}
+
+      {% assign entries_layout = page.entries_layout | default: 'list' %}
+      <div class="entries-{{ entries_layout }}">
+        {% include documents-collection.html entries=posts_in_year type=entries_layout %}
+      </div>
+    {% endfor %}
+
+  </div>
+</div>
